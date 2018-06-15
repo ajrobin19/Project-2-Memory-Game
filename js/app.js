@@ -91,43 +91,43 @@ function pickTwo(){
             setTimeout(remove, 1250);
         }
     }
-}
 
-// function to turn the mouse functions back on
-function mouseOn(){
-    $('.card').click(pickTwo);
-}
+    // function to turn the mouse functions back on
+    function mouseOn(){
+        $('.card').click(pickTwo);
+    }
 
-//function to remove excess classes after a match or no match
-function remove(){
-    card[0].removeClass('open show animated bounce shake no-match');
-    card[1].removeClass('open show animated bounce shake no-match');
-}
+    //function to remove excess classes after a match or no match
+    function remove(){
+        card[0].removeClass('open show animated bounce shake no-match');
+        card[1].removeClass('open show animated bounce shake no-match');
+    }
 
-//This function determines and returns the symbol of the chosen card.
-function classAssignment(card){
-    if(card.hasClass('fa-diamond')){
-        return 'diamond';
-    }
-    else if(card.hasClass('fa-paper-plane-o')){
-        return 'plane';
-    }
-    else if(card.hasClass('fa-anchor')){
-        return 'anchor';
-    }
-    else if(card.hasClass('fa-bolt')){
-        return 'bolt';
-    }
-    else if(card.hasClass('fa-cube')){
-        return 'cube';
-    }
-    else if(card.hasClass('fa-leaf')){
-        return 'leaf';
-    }
-    else if(card.hasClass('fa-bicycle')){
-        return 'bicycle';
-    }
-    else if(card.hasClass('fa-bomb')){
-        return 'bomb';
+    //This function determines and returns the symbol of the chosen card.
+    function classAssignment(card){
+        if(card.hasClass('fa-diamond')){
+            return 'diamond';
+        }
+        else if(card.hasClass('fa-paper-plane-o')){
+            return 'plane';
+        }
+        else if(card.hasClass('fa-anchor')){
+            return 'anchor';
+        }
+        else if(card.hasClass('fa-bolt')){
+            return 'bolt';
+        }
+        else if(card.hasClass('fa-cube')){
+            return 'cube';
+        }
+        else if(card.hasClass('fa-leaf')){
+            return 'leaf';
+        }
+        else if(card.hasClass('fa-bicycle')){
+            return 'bicycle';
+        }
+        else if(card.hasClass('fa-bomb')){
+            return 'bomb';
+        }
     }
 }
