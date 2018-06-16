@@ -92,9 +92,14 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
-    width: 345px;
+    text-align: center;
+    width: 450px;
     margin-bottom: 10px;
+    display: inline-flex;
+}
+.score-panel div{
+    width: 150px;
+    text-align: center;
 }
 
 .score-panel .stars {

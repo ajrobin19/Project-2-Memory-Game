@@ -38,10 +38,11 @@ function shuffle(array) {
 //This listener even looks for a card to be clicked and then calls a the pickTwo function
 $('.card').click(pickTwo);
 
-//Counts how many cards are showing
+//Counts how many cards are showing, the contents and symbols of the cards in play, and the number of moves.
 let count = 0;
 let card = [];
 let cardSymbol = [];
+let moves = 0;
 
 //This function shows the 2 clicked cards and looks to see if they match
 function pickTwo(){
@@ -71,6 +72,11 @@ function pickTwo(){
     //Once two cards are chosen the following code determines if they are a match or not.
     //Depending on if they are a match it adds or removes the appropriate classes.
     if(count === 2){
+       
+        //The following code shows the number of moves
+        moves++;
+        $('.moves').text(moves);
+        stars();
 
         //Turns the mouse functions off until the animation is over
         $(".card").off("click");
@@ -131,3 +137,48 @@ function pickTwo(){
         }
     }
 }
+//The following function adjusts the stars according to the number of moves
+function stars(){
+
+    //Takes away a star at 16 moves and takes away another star at 26 moves
+    if(moves === 16){
+        $('#threeStar').removeClass('fa-star');
+        $('#threeStar').addClass('fa-star-o animated rotateIn');
+    }
+    else if(moves === 26){
+        $('#twoStar').removeClass('fa-star');
+        $('#twoStar').addClass('fa-star-o animated rotateIn');
+    }
+}
+
+//The following keeps track of the game clock. Calls for the gameTime function every second
+let minutes = 0;
+let seconds = 50;
+setInterval(gameTime, 1000);
+
+//This function adjusts and displays the game clock
+function gameTime(){
+    //Makes the seconds increase by one
+    seconds++;
+
+    //Flips over the minute at 60 seconds and resets the seconds
+    if(seconds == 60){
+        minutes++;
+        seconds = 0;
+    }
+
+    //Adds a 0 in front of single digit numbers to emulate a clock, which converts seconds to a string. So it is converted back to a number at 10.
+    if(seconds >=0 && seconds <=9){
+        seconds = '0' + seconds;
+    }
+    else if(seconds == '10'){
+        seconds = 10;
+    }
+
+    //Prints out the clock above the game board
+    $('.clock').text(minutes +':' +seconds);
+    
+}
+
+//This listener even looks for the restart button to be pressed, then reloads the page when it is hit
+$('.restart').click(function(){location.reload();});
