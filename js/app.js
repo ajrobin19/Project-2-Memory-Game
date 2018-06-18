@@ -43,6 +43,8 @@ let count = 0;
 let card = [];
 let cardSymbol = [];
 let moves = 0;
+let matches = 0;
+let starRating = '3 Stars';
 
 //This function shows the 2 clicked cards and looks to see if they match
 function pickTwo(){
@@ -88,7 +90,11 @@ function pickTwo(){
             card[0].addClass('match animated bounce');
             card[1].addClass('match animated bounce');
             setTimeout(remove, 1250);
+            matches++;
 
+            if(matches === 8){
+                winner();
+            }
         }
         else{
             count = 0;
@@ -136,7 +142,28 @@ function pickTwo(){
             return 'bomb';
         }
     }
+
+    //The following function is the congratulations window. It stops the time, displays a message, and lets the user play again if they wish.
+    function winner(){
+        clearInterval(time);
+        $('.deck').children('li').remove();
+        $('.deck').append("<div class='congrats'><h1>Congratulations!</h1><br /><h3>You were able to complete the game in " +minutes +" minutes and " +seconds +" seconds</h3><h3>You earned "+starRating +"!</h3><ul class='stars'><li><i id='oneStar' class='fa fa-star'></i></li><li><i id='twoStar' class='fa fa-star'></i></li><li><i id='threeStar' class='fa fa-star'></i></li></ul><br /><br /><h2>Would you like to play again?</h2><div class='yes'><h3>Yes!</h3></div></div>")
+        if(starRating == '2 Stars'){
+            $('.congrats #threeStar').removeClass('fa-star');
+            $('.congrats #threeStar').addClass('fa-star-o animated rotateIn');
+        }
+        else if(starRating == '1 Star'){
+            $('.congrats #threeStar').removeClass('fa-star');
+            $('.congrats #threeStar').addClass('fa-star-o animated rotateIn');
+            $('.congrats #twoStar').removeClass('fa-star');
+            $('.congrats #twoStar').addClass('fa-star-o animated rotateIn');
+        }
+        mouseOn();
+        //This listener even looks for the yes button to be pressed, then reloads the page when it is hit
+$('.yes').click(function(){console.log("success");location.reload();});
+    }
 }
+
 //The following function adjusts the stars according to the number of moves
 function stars(){
 
@@ -144,17 +171,19 @@ function stars(){
     if(moves === 16){
         $('#threeStar').removeClass('fa-star');
         $('#threeStar').addClass('fa-star-o animated rotateIn');
+        starRating = '2 Stars';
     }
     else if(moves === 26){
         $('#twoStar').removeClass('fa-star');
         $('#twoStar').addClass('fa-star-o animated rotateIn');
+        starRating = '1 Star';
     }
 }
 
 //The following keeps track of the game clock. Calls for the gameTime function every second
 let minutes = 0;
-let seconds = 50;
-setInterval(gameTime, 1000);
+let seconds = 0;
+let time = setInterval(gameTime, 1000);
 
 //This function adjusts and displays the game clock
 function gameTime(){
@@ -182,3 +211,4 @@ function gameTime(){
 
 //This listener even looks for the restart button to be pressed, then reloads the page when it is hit
 $('.restart').click(function(){location.reload();});
+

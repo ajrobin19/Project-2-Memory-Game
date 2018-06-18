@@ -49,6 +49,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin: 0 0 3em;
+    position: relative;
 }
 
 .deck .card {
@@ -117,4 +118,43 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+/*
+ *  Congratulations Screen
+ */
+
+.congrats{
+    width: 100%;
+    min-height: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.congrats h1{
+    font-size: 3em;
+}
+
+.congrats .stars {
+    font-size: 2em;
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    list-style-position: outside;
+}
+
+.congrats .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.congrats .yes{
+    cursor: pointer;
+}
+
+.yes h3{
+    margin: auto;
+    width: 200px;
+    border: solid;
+    background: linear-gradient(160deg, #aa7ecd 0%, #02ccba 100%);
 }
