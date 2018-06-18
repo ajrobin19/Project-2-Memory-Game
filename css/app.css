@@ -158,3 +158,28 @@ h1 {
     border: solid;
     background: linear-gradient(160deg, #aa7ecd 0%, #02ccba 100%);
 }
+
+@media screen and (max-width: 770px) {
+    .deck {
+        width: 90vw;
+        min-height: 90vw;
+        padding: 5vw;
+    }
+    .deck .card {
+        padding: 5vw;
+        height: 18vw;
+        width: 18vw;
+        max-height: 125px;
+        max-width: 125px;
+    }
+    .score-panel {
+        font-size: 20px;
+        width: 90vw;
+    }
+    .score-panel div{
+        width: 33vw;
+    }
+    .score-panel .movesDiv, .clock{
+        display: block;
+    }
+}
