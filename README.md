@@ -7,11 +7,9 @@
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This is a traditional match game. Click two cards at a time trying to get a match. Once you have matched all of the pairs you will be asked to play again.
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+There is a star rating system, if you are able to complete the game in 15 moves or less then you will recieve three stars. If you can complete it in 25 moves or less, then you will recieve two stars. If it takes you more than 25 moves then you will recieve 1 star.
 
 ## Contributing
 
