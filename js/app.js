@@ -145,8 +145,8 @@ function pickTwo(){
 
     //The following function is the congratulations window. It stops the time, displays a message, and lets the user play again if they wish.
     function winner(){
-        clearInterval(time);
         $('.deck').children('li').remove();
+        $('.score-panel').remove();
         $('.deck').append("<div class='congrats'><h1>Congratulations!</h1><br /><h3>You were able to complete the game in " +minutes +" minutes and " +seconds +" seconds</h3><h3>You earned "+starRating +"!</h3><ul class='stars'><li><i id='oneStar' class='fa fa-star'></i></li><li><i id='twoStar' class='fa fa-star'></i></li><li><i id='threeStar' class='fa fa-star'></i></li></ul><br /><br /><h2>Would you like to play again?</h2><div class='yes'><h3>Yes!</h3></div></div>")
         if(starRating == '2 Stars'){
             $('.congrats #threeStar').removeClass('fa-star');
@@ -183,7 +183,9 @@ function stars(){
 //The following keeps track of the game clock. Calls for the gameTime function every second
 let minutes = 0;
 let seconds = 0;
-let time = setInterval(gameTime, 1000);
+let time;
+
+$('.card').one('click', function(){time = setInterval(gameTime, 1000);});
 
 //This function adjusts and displays the game clock
 function gameTime(){
