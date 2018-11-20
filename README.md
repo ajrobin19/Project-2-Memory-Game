@@ -12,6 +12,8 @@ This is a traditional match game. Click two cards at a time trying to get a matc
 
 There is a star rating system, if you are able to complete the game in 15 moves or less then you will recieve three stars. If you can complete it in 25 moves or less, then you will recieve two stars. If it takes you more than 25 moves then you will recieve 1 star.
 
+You can play the game online at https://ajrobin19.github.io/Project-2-Memory-Game/
+
 ## Dependencies
 This project was made possible with the use of a couple of other open source projects.
 

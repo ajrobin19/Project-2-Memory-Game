@@ -159,8 +159,9 @@ function pickTwo(){
             $('.congrats #twoStar').addClass('fa-star-o animated rotateIn');
         }
         mouseOn();
+
         //This listener even looks for the yes button to be pressed, then reloads the page when it is hit
-$('.yes').click(function(){console.log("success");location.reload();});
+        $('.yes').click(function(){console.log("success");location.reload();});
     }
 }
 
@@ -185,7 +186,7 @@ let minutes = 0;
 let seconds = 0;
 let time;
 
-$('.card').one('click', function(){time = setInterval(gameTime, 1000);});
+$('.card').one('click', function(){if(!time){time = setInterval(gameTime, 1000)}});
 
 //This function adjusts and displays the game clock
 function gameTime(){
@@ -202,7 +203,7 @@ function gameTime(){
     if(seconds >=0 && seconds <=9){
         seconds = '0' + seconds;
     }
-    else if(seconds == '10'){
+    else if(seconds === 10){
         seconds = 10;
     }
 
